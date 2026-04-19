@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  background-color: #0a0c10;
+  color: #e8eaf0;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #111318;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a3040;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a4560;
+}
+
+/* Weight bars animation */
+.weight-fill {
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Status badge pulse */
+.status-live {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+/* Confidence bar shimmer */
+.conf-bar-fill {
+  background: linear-gradient(90deg, #3b82f6, #00e5b8);
+  transition: width 0.5s ease-out;
+}
+
+/* Fade-in for result cards */
+.animate-slide-up {
+  animation: slide-up 0.35s ease-out;
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Pipeline step transitions */
+.pipeline-step {
+  transition: all 0.3s ease;
+}
+
+.pipeline-step.active {
+  border-color: #00e5b8;
+  background-color: rgba(0, 229, 184, 0.06);
+}
+
+.pipeline-step.done {
+  border-color: rgba(0, 229, 184, 0.4);
+  background-color: rgba(0, 229, 184, 0.03);
+}
